@@ -1,115 +1,159 @@
-# Console Table Printer (CTP) - Monorepo
+# JSON Table Formatter - Chrome Extension
 
-A comprehensive collection of tools for creating beautiful ASCII tables in various environments - from Node.js applications to Chrome extensions and CLI tools.
+A Chrome browser extension that transforms JSON data into beautifully formatted ASCII tables. Perfect for developers, data analysts, and anyone who needs to visualize JSON data in a structured, readable format.
 
-## 🚀 Projects
+## Features
 
-This monorepo contains several related projects:
+✨ **Easy JSON to Table Conversion** - Paste your JSON array and get an instant ASCII table  
+🎨 **Beautiful Formatting** - Clean, professional table output with Unicode box-drawing characters  
+📋 **Built-in Examples** - Quick-start with pre-loaded simple and complex JSON examples  
+⌨️ **Keyboard Shortcuts** - Use Ctrl+Enter (Cmd+Enter on Mac) to quickly format tables  
+🧹 **Input Validation** - Comprehensive error handling for invalid JSON and data types  
+🎯 **User-Friendly Interface** - Clean, modern popup with intuitive controls  
 
-### 📦 [console-table-printer](./console-table-printer/)
-The core Node.js library for printing pretty tables in console applications.
+## Installation
 
-```bash
-npm install console-table-printer
+### Install from Chrome Web Store
+*Coming soon - extension will be published to the Chrome Web Store*
+
+### Manual Installation (Developer Mode)
+
+1. **Download the Extension**
+   ```bash
+   git clone <repository-url>
+   cd chrome-extension
+   ```
+
+2. **Load in Chrome**
+   - Open Chrome and navigate to `chrome://extensions/`
+   - Enable "Developer mode" (toggle in top-right corner)
+   - Click "Load unpacked"
+   - Select the `chrome-extension` folder
+
+3. **Start Using**
+   - Look for the JSON Table Formatter icon in your Chrome toolbar
+   - Click the icon to open the formatter popup
+
+## Usage
+
+### Basic Usage
+
+1. **Open the Extension** - Click the extension icon in your Chrome toolbar
+2. **Input JSON Data** - Paste or type your JSON array in the text area
+3. **Format Table** - Click "Format Table" or press Ctrl+Enter (Cmd+Enter on Mac)
+4. **View Results** - Your formatted table appears in the output section
+
+### Supported JSON Format
+
+The extension accepts JSON arrays containing objects with consistent properties:
+
+```json
+[
+  {"name": "John", "age": 30, "city": "New York"},
+  {"name": "Jane", "age": 25, "city": "Boston"},
+  {"name": "Bob", "age": 35, "city": "Chicago"}
+]
 ```
 
-**Features:**
-- Beautiful ASCII table formatting
-- Color support and styling
-- Column alignment and customization
-- Computed columns and sorting
-- TypeScript support
-
-### 🌐 [Chrome Extension](./chrome-extension/)
-A browser extension that formats table data on web pages using the console-table-printer library.
-
-### 🖥️ [CLI Tool](./table-printer-cli/)
-A command-line interface for formatting tabular data from various sources.
-
-```bash
-npm install -g table-printer-cli
+**Output:**
+```
+┌────────┬─────┬──────────┐
+│  name  │ age │   city   │
+├────────┼─────┼──────────┤
+│  John  │ 30  │ New York │
+│  Jane  │ 25  │  Boston  │
+│  Bob   │ 35  │ Chicago  │
+└────────┴─────┴──────────┘
 ```
 
-### 📚 [Documentation Site](./console-table-docu/)
-Interactive documentation and examples built with Docusaurus.
+### Example Data Sets
 
-Visit: https://console-table.netlify.app
+The extension includes two built-in examples:
 
-### 🍺 [Homebrew Formula](./homebrew-console-table/)
-Homebrew formula for easy installation on macOS.
+- **Simple Example**: Basic user data (name, age, city)
+- **Complex Example**: Product inventory data (id, product, price, category, stock)
 
-```bash
-brew install console-table
+Click the example links below the input area to load sample data instantly.
+
+## Technical Details
+
+### Architecture
+
+- **Manifest V3** - Built using the latest Chrome extension manifest version
+- **Pure JavaScript** - No external dependencies, lightweight and fast
+- **Custom Table Formatter** - Browser-compatible implementation inspired by console-table-printer
+- **Unicode Box Drawing** - Professional table formatting with Unicode characters
+
+### File Structure
+
+```
+chrome-extension/
+├── manifest.json       # Extension configuration
+├── popup.html         # Main popup interface
+├── popup.js           # User interface logic
+├── table-formatter.js # Core table formatting engine
+├── icon16.png         # 16x16 extension icon
+├── icon48.png         # 48x48 extension icon
+├── icon128.png        # 128x128 extension icon
+├── favicon.ico        # Favicon
+└── README.md          # This file
 ```
 
-### 🔧 [simple-wcswidth](./simple-wcswidth/)
-A utility library for calculating display width of Unicode strings, used internally by console-table-printer.
+### Key Components
 
-### 🧪 [E2E Tests](./e2e/)
-End-to-end testing suite for all projects in the monorepo.
+- **TableFormatter Class** (`table-formatter.js:2-133`) - Core table rendering engine
+- **formatTable Function** (`table-formatter.js:136-140`) - Simple API for table creation
+- **Event Handlers** (`popup.js:24-108`) - User interaction management
+- **Input Validation** (`popup.js:33-64`) - JSON parsing and data validation
 
-## 🛠️ Development
+## Development
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- Yarn package manager
 
-### Quick Start
+- Google Chrome browser
+- Basic knowledge of HTML, CSS, and JavaScript
 
-1. **Clone the repository:**
+### Local Development
+
+1. **Clone and Setup**
    ```bash
-   git clone https://github.com/console-table-printer/console-table-printer.git
-   cd console-table-printer
+   git clone <repository-url>
+   cd chrome-extension
    ```
 
-2. **Install dependencies for all projects:**
-   ```bash
-   # Install dependencies for each project
-   cd console-table-printer && yarn install && cd ..
-   cd table-printer-cli && yarn install && cd ..
-   cd console-table-docu && yarn install && cd ..
-   cd simple-wcswidth && yarn install && cd ..
-   cd e2e && yarn install && cd ..
-   ```
+2. **Load in Chrome**
+   - Navigate to `chrome://extensions/`
+   - Enable Developer mode
+   - Click "Load unpacked" and select the project folder
 
-3. **Build all projects:**
-   ```bash
-   # Build core library
-   cd console-table-printer && yarn build && cd ..
-   
-   # Build CLI tool
-   cd table-printer-cli && yarn build && cd ..
-   
-   # Build simple-wcswidth
-   cd simple-wcswidth && yarn build && cd ..
-   ```
+3. **Make Changes**
+   - Edit files as needed
+   - Click the refresh button in `chrome://extensions/` to reload
+   - Test changes by clicking the extension icon
 
-4. **Run tests:**
-   ```bash
-   # Test core library
-   cd console-table-printer && yarn test && cd ..
-   
-   # Test CLI tool
-   cd table-printer-cli && yarn test && cd ..
-   
-   # Run E2E tests
-   cd e2e && yarn test && cd ..
-   ```
+### Contributing
 
-## 📄 License
+Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
 
-MIT License - see individual project directories for specific license files.
+## Browser Compatibility
 
-## 👥 Contributing
+- **Chrome**: Full support (Manifest V3)
+- **Edge**: Compatible with Chromium-based Edge
+- **Other Browsers**: May require manifest adjustments
 
-Contributions are welcome! Please read the contributing guidelines in each project directory.
+## License
 
-## 🔗 Links
+This project is open source. See the LICENSE file for details.
 
-- **Documentation:** https://console-table.netlify.app
-- **NPM Package:** https://www.npmjs.com/package/console-table-printer
-- **GitHub:** https://github.com/console-table-printer/console-table-printer
+## Changelog
+
+### Version 1.0
+- Initial release
+- JSON to ASCII table conversion
+- Built-in examples
+- Input validation and error handling
+- Keyboard shortcuts support
 
 ---
 
-Made with ❤️ by Nahiyan Kamal
+**Made with ❤️ for developers who love clean data visualization**
