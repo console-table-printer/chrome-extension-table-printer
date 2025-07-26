@@ -2,20 +2,6 @@
 
 A Chrome browser extension that transforms JSON data into beautifully formatted ASCII tables. Perfect for developers, data analysts, and anyone who needs to visualize JSON data in a structured, readable format.
 
-## Features
-
-✨ **Easy JSON to Table Conversion** - Paste your JSON array and get an instant ASCII table  
-🎨 **Beautiful Formatting** - Clean, professional table output with Unicode box-drawing characters  
-📋 **Built-in Examples** - Quick-start with pre-loaded simple and complex JSON examples  
-⌨️ **Keyboard Shortcuts** - Use Ctrl+Enter (Cmd+Enter on Mac) to quickly format tables  
-🧹 **Input Validation** - Comprehensive error handling for invalid JSON and data types  
-🎯 **User-Friendly Interface** - Clean, modern popup with intuitive controls  
-
-## Installation
-
-### Install from Chrome Web Store
-*Coming soon - extension will be published to the Chrome Web Store*
-
 ### Manual Installation (Developer Mode)
 
 1. **Download the Extension**
@@ -84,30 +70,6 @@ Click the example links below the input area to load sample data instantly.
 - **Custom Table Formatter** - Browser-compatible implementation inspired by console-table-printer
 - **Unicode Box Drawing** - Professional table formatting with Unicode characters
 
-### File Structure
-
-```
-chrome-extension/
-├── manifest.json       # Extension configuration
-├── popup.html         # Main popup interface
-├── popup.js           # User interface logic
-├── table-formatter.js # Core table formatting engine
-├── icon16.png         # 16x16 extension icon
-├── icon48.png         # 48x48 extension icon
-├── icon128.png        # 128x128 extension icon
-├── favicon.ico        # Favicon
-└── README.md          # This file
-```
-
-### Key Components
-
-- **TableFormatter Class** (`table-formatter.js:2-133`) - Core table rendering engine
-- **formatTable Function** (`table-formatter.js:136-140`) - Simple API for table creation
-- **Event Handlers** (`popup.js:24-108`) - User interaction management
-- **Input Validation** (`popup.js:33-64`) - JSON parsing and data validation
-
-## Development
-
 ### Prerequisites
 
 - Google Chrome browser
@@ -131,10 +93,6 @@ chrome-extension/
    - Click the refresh button in `chrome://extensions/` to reload
    - Test changes by clicking the extension icon
 
-### Contributing
-
-Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
-
 ## Browser Compatibility
 
 - **Chrome**: Full support (Manifest V3)
@@ -143,7 +101,7 @@ Contributions are welcome! Please feel free to submit issues, feature requests, 
 
 ## License
 
-This project is open source. See the LICENSE file for details.
+This project is licensed under the ISC License. See the LICENSE file for details.
 
 ## Changelog
 
