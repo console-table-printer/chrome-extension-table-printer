@@ -1,8 +1,8 @@
+![Screenshot](screenshot.png)
+
 # JSON Table Formatter - Chrome Extension
 
 A Chrome browser extension that transforms JSON data into beautifully formatted ASCII tables. Perfect for developers, data analysts, and anyone who needs to visualize JSON data in a structured, readable format.
-
-![Screenshot](screenshot.png)
 
 ### Manual Installation (Developer Mode)
 
@@ -100,19 +100,6 @@ Click the example links below the input area to load sample data instantly.
 - **Chrome**: Full support (Manifest V3)
 - **Edge**: Compatible with Chromium-based Edge
 - **Other Browsers**: May require manifest adjustments
-
-## License
-
-This project is licensed under the ISC License. See the LICENSE file for details.
-
-## Changelog
-
-### Version 1.0
-- Initial release
-- JSON to ASCII table conversion
-- Built-in examples
-- Input validation and error handling
-- Keyboard shortcuts support
 
 ---
 
