@@ -2,6 +2,8 @@
 
 A Chrome browser extension that transforms JSON data into beautifully formatted ASCII tables. Perfect for developers, data analysts, and anyone who needs to visualize JSON data in a structured, readable format.
 
+![Screenshot](screenshot.png)
+
 ### Manual Installation (Developer Mode)
 
 1. **Download the Extension**
